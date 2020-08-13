@@ -1,0 +1,41 @@
+<form>
+  <div class="form-group">
+    <label for="username">UserName:
+    </label>
+      <input type="text"
+      #username="ngModel"
+      ngModel
+      #username
+      (change)="log(username)"
+      required
+      minlength="3"
+      maxlength="10"
+      name="username"/>
+      <div class="alert alert-danger" *ngIf="username.touched && !username.valid">
+        <div class="alert alert-danger" *ngIf="username.touched && username.errors.required">User Name field is required</div>
+        <div class="alert alert-danger"*ngIf="username.touched && username.errors.minlength">User Name field should be at least {{username.errors.minlength.requiredLength}} characters</div>
+      </div>
+
+    <label for="username">Password:
+    </label>
+      <input type="password"
+      #password="ngModel"
+      ngModel
+      name="password"
+      #password
+      (change)="log(password)"
+      required
+      minlength="3"
+      maxlength="10"
+     />
+    <div class="alert alert-danger" *ngIf="password.touched && !password.valid">
+      <div class="alert alert-danger" *ngIf="password.touched && password.errors.required">Password field is required</div>
+      <div class="alert alert-danger" *ngIf="password.touched && password.errors.minlength">Password field should be at least {{password.errors.minlength.requiredLength}} characters</div>
+    </div>
+    <!-- <div>Please enter passoword in correct format</div> -->
+  </div>
+
+
+
+</form>
+<button class="btn btn-primary">Sign-Up</button>
